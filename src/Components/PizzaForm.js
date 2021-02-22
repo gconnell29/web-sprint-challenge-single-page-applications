@@ -7,25 +7,36 @@ const PizzaForm = () => {
     name: '',
     size: '',
     sauce: '',
-    topping: '',
+    topping: [],
     instruction: ''
   });
 
-  function onSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     // Axios
     setOrders({
       name: '',
       size: '',
       sauce: '',
-      topping: '',
+      topping: [],
       instruction: ''
     })
   }
 
   function handleChange(event) {
-    let value = event.target.type === "checkbox" ? event.target.checked : event.target.value;
+    let value = event.target.value;
     setOrders({...orders, [event.target.name]: value })
+  }
+
+  function handleCheckbox(event) {
+    if (event.target.checked) {
+      // Add topping to array
+      setOrders({...orders, topping: [...orders.topping, event.target.value ]})
+    } else {
+      // Remove topping from array
+      let updated = orders.topping.filter(item => item !== event.target.value)
+      setOrders({...orders, topping: updated })
+    }
   }
 
   return (
@@ -38,7 +49,7 @@ const PizzaForm = () => {
           value={orders.name}
         />
       </label>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="heading">Choose Your Size</div>
         <label>
           <select name="size"
@@ -87,36 +98,43 @@ const PizzaForm = () => {
           <input
             name="topping"
             type="checkbox"
-            onChange={handleChange}
+            onChange={handleCheckbox}
+            value="Pepperoni"
           /> Pepperoni
         </label>
         <label>
           <input
             name="topping"
             type="checkbox"
+            onChange={handleCheckbox}
+            value="Sausage"
           /> Sausage
         </label>
         <label>
           <input
             name="topping"
             type="checkbox"
+            onChange={handleCheckbox}
+            value="Chicken"
           /> Chicken
         </label>
         <label>
           <input
             name="topping"
             type="checkbox"
+            onChange={handleCheckbox}
+            value='Veggies'
           /> Veggies
         </label>
         <label> Special Instructions? <br />
         <input
           name="instruction"
           type="text"
-          value={orders.in}
-            
+          handleChange={onChange}
+          value={orders.instruction}
         />
       </label>
-        <button>Add to Order!</button>
+        <button type="submit">Add to Order!</button>
       </form>
     </section>
   );
