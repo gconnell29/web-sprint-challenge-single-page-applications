@@ -47,5 +47,12 @@ header button:hover, .order-btn:hover {
 }
 .banner button {
   margin-top: 200px;
-
+}
+form label {
+  display: block;
+  margin-top: 10px;
+}
+form .heading {
+  font-weight: bold;
+  margin-top: 20px;
 }
