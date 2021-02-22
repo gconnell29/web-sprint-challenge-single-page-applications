@@ -130,7 +130,7 @@ const PizzaForm = () => {
         <input
           name="instruction"
           type="text"
-          handleChange={onChange}
+          onChange={handleChange}
           value={orders.instruction}
         />
       </label>
