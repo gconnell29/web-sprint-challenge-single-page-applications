@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: red;
+  text-transform: uppercase;
+  font-weight: initial;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header button {
+  width: 100px;
+  padding: 10px;
+  background: #fff;
+}
+header button:hover {
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+}
+
