@@ -1,6 +1,5 @@
 import React from "react";
-import axios from "axios";
-import { Route } from "react-router-dom";
+import axios from 'axios';
 
 const App = () => {
   return (
