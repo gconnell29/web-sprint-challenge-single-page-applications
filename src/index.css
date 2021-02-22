@@ -29,12 +29,12 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-header button, .order-btn {
+button {
   width: 100px;
   padding: 10px;
   background: #fff;
 }
-header button:hover, .order-btn:hover {
+button:hover {
   color: #fff;
   background: #000;
   cursor: pointer;
@@ -55,4 +55,8 @@ form label {
 form .heading {
   font-weight: bold;
   margin-top: 20px;
+}
+form button {
+  margin-top: 10px;
+  width: 200px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import PizzaForm from './Components/PizzaForm.js';
 
 const App = () => {
@@ -9,14 +9,21 @@ const App = () => {
       <header>
         <h1>Lambda Eats</h1>
         <nav>
-          <Route exact path="/"><button>Home</button></Route>
-          <Route path="/"><button>Help</button></Route>
+          <Link to="/"><button>Home</button></Link>
+          <Link to="/pizza"><button>Order</button></Link>
         </nav>
       </header>
       <div className="banner">
-        <Route path="/"><button className="order-btn">Order Now</button></Route>
+        <Link to="/pizza"><button className="order-btn">Order Now</button></Link>
       </div>
-      <PizzaForm />
+      <Switch>
+        {/* <Route exact path="/">
+          <App />
+        </Route> */}
+        <Route path="/pizza">
+          <PizzaForm />
+        </Route>
+      </Switch>
     </div>
   );
 };
